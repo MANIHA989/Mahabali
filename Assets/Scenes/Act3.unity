@@ -201,8 +201,8 @@ Transform:
   m_GameObject: {fileID: 164001111}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: -3.3, z: 0}
-  m_LocalScale: {x: 0.91515, y: 0.91515, z: 0.91515}
+  m_LocalPosition: {x: 11, y: -4.3, z: 0}
+  m_LocalScale: {x: 1.0906724, y: 1.0906724, z: 1.0906724}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -563,7 +563,7 @@ Transform:
   m_GameObject: {fileID: 1079625372}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.71, y: -3.02, z: 0}
+  m_LocalPosition: {x: 1.71, y: -3.271, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -640,11 +640,11 @@ PrefabInstance:
     - target: {fileID: 8927237311964447985, guid: 6b23bcab8107a994e9b09e527f1cc4da, type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[0].character.icon
       value: 
-      objectReference: {fileID: 1188357626, guid: f0b91c29941f2fc4d818cdf0ad7074c6, type: 3}
+      objectReference: {fileID: 217653919, guid: 1530ff6797f71274a8c38556afeeb709, type: 3}
     - target: {fileID: 8927237311964447985, guid: 6b23bcab8107a994e9b09e527f1cc4da, type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[1].character.icon
       value: 
-      objectReference: {fileID: 1502821769, guid: ac3db3eeb287cc243a2c7bd891f6370b, type: 3}
+      objectReference: {fileID: 1188357626, guid: f0b91c29941f2fc4d818cdf0ad7074c6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -834,7 +834,7 @@ MonoBehaviour:
   ReachedTarget: 0
   trigger: {fileID: 700672192}
   scaleIncreaseSpeed: 0.5
-  maxScale: {x: 2, y: 2, z: 2}
+  maxScale: {x: 3, y: 3, z: 3}
 --- !u!4 &1990046356
 Transform:
   m_ObjectHideFlags: 0

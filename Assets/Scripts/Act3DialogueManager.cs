@@ -84,8 +84,10 @@ public class Act3Manager : MonoBehaviour
                     vamanaAnimator.enabled = false;
                 }
                 ReachedTarget = true;
+                vamanaAnimator.enabled = false;
+                SupportingCharacterAnimator.enabled = false;
                 trigger.TriggerDialogue();
-                vamanaAnimator.SetBool("isIdle", true);
+
             }
         }
     }
@@ -95,6 +97,8 @@ public class Act3Manager : MonoBehaviour
         isConversationActive = true;
 
         dialogueQueue.Clear();
+
+        SupportingCharacterAnimator.SetBool("isIdle", true);
 
         foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
         {
@@ -195,7 +199,7 @@ public class Act3Manager : MonoBehaviour
         {
             StartCoroutine(ScaleVamanaGradually());
         }
-       
+
     }
 
     private IEnumerator ScaleVamanaGradually()
