@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8668741960856407112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6491812219021247132}
+  - component: {fileID: 8927237311964447985}
+  m_Layer: 0
+  m_Name: DialogTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6491812219021247132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8668741960856407112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.339286, y: -9.982708, z: 0.44752395}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8927237311964447985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8668741960856407112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13086a1178f32f44182279241f35c890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueLines:
+    - character:
+        name: 
+        icon: {fileID: 1188357626, guid: f0b91c29941f2fc4d818cdf0ad7074c6, type: 3}
+      line: Our people thrive.
+    - character:
+        name: 
+        icon: {fileID: -1197770961, guid: da2b06b58bacecd42a5c09078c3bb53c, type: 3}
+      line: Yes, my king, they do.
+    - character:
+        name: 
+        icon: {fileID: 1188357626, guid: f0b91c29941f2fc4d818cdf0ad7074c6, type: 3}
+      line: Yet, the heavens deny us respect.
+    - character:
+        name: 
+        icon: {fileID: -1197770961, guid: da2b06b58bacecd42a5c09078c3bb53c, type: 3}
+      line: Respect comes with time and patience.
+    - character:
+        name: 
+        icon: {fileID: 1188357626, guid: f0b91c29941f2fc4d818cdf0ad7074c6, type: 3}
+      line: We have built a prosperous kingdom.
+    - character:
+        name: 
+        icon: {fileID: -1197770961, guid: da2b06b58bacecd42a5c09078c3bb53c, type: 3}
+      line: A kingdom of honor and unity, indeed.
+    - character:
+        name: 
+        icon: {fileID: 1188357626, guid: f0b91c29941f2fc4d818cdf0ad7074c6, type: 3}
+      line: But we remain unacknowledged!
+    - character:
+        name: 
+        icon: {fileID: -1197770961, guid: da2b06b58bacecd42a5c09078c3bb53c, type: 3}
+      line: "Humility is a king\u2019s greatest strength."
+    - character:
+        name: 
+        icon: {fileID: 1188357626, guid: f0b91c29941f2fc4d818cdf0ad7074c6, type: 3}
+      line: Humility cannot silence mockery!
+    - character:
+        name: 
+        icon: {fileID: -1197770961, guid: da2b06b58bacecd42a5c09078c3bb53c, type: 3}
+      line: Wisdom, my king, is the true answer.
+    - character:
+        name: 
+        icon: {fileID: 1188357626, guid: f0b91c29941f2fc4d818cdf0ad7074c6, type: 3}
+      line: Wisdom means nothing without action!
+    - character:
+        name: 
+        icon: {fileID: -1197770961, guid: da2b06b58bacecd42a5c09078c3bb53c, type: 3}
+      line: Action guided by wisdom leads to greatness.
+    - character:
+        name: 
+        icon: {fileID: 1188357626, guid: f0b91c29941f2fc4d818cdf0ad7074c6, type: 3}
+      line: Prepare the armies.
+    - character:
+        name: 
+        icon: {fileID: -1197770961, guid: da2b06b58bacecd42a5c09078c3bb53c, type: 3}
+      line: As you command, my king.
+    - character:
+        name: 
+        icon: {fileID: 1188357626, guid: f0b91c29941f2fc4d818cdf0ad7074c6, type: 3}
+      line: We march towards destiny.
+    - character:
+        name: 
+        icon: {fileID: -1197770961, guid: da2b06b58bacecd42a5c09078c3bb53c, type: 3}
+      line: May the gods guide your path.
