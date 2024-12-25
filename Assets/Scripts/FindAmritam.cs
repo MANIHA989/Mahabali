@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro; // Import TextMesh Pro namespace
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class FindAmritam : MonoBehaviour
 {
@@ -102,6 +104,8 @@ public class FindAmritam : MonoBehaviour
             string fullText = "And with this heaven shall bow to us";
             StartCoroutine(TypewriterEffect(fullText));
         }
+        
+
     }
 
     private IEnumerator TypewriterEffect(string text)
@@ -119,5 +123,7 @@ public class FindAmritam : MonoBehaviour
 
             yield return new WaitForSeconds(TypewriterSpeed);
         }
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Act3");
     }
 }

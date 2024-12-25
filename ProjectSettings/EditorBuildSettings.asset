@@ -23,4 +23,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Act2Scene2.unity
     guid: 8446c699b1b98ea43b8943c744383a22
+  - enabled: 1
+    path: Assets/Scenes/Act2Scene3.unity
+    guid: e842122f2244f3040818b4f7337f7952
+  - enabled: 1
+    path: Assets/Scenes/PuzzleScene.unity
+    guid: 136c039082bd2ab4698316d5ef9fd62b
+  - enabled: 1
+    path: Assets/Scenes/Act3.unity
+    guid: 63b27df0d2d71c9419f71d3bea37cba8
+  - enabled: 1
+    path: Assets/Scenes/Act3Scene2.unity
+    guid: 8c0257a2df775e44db12bfd83df9f584
+  - enabled: 1
+    path: Assets/Scenes/Act3Scene3.unity
+    guid: 4c439043d969cb345b217d3c240f7843
+  - enabled: 1
+    path: Assets/Scenes/LastScene.unity
+    guid: 2cc4917a743a7cd4cb8e45f664515c8f
   m_configObjects: {}

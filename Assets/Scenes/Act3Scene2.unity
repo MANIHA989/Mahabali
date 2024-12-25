@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 36432071}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -0.5, z: 0}
+  m_LocalPosition: {x: -2.5, y: -0.5, z: 0}
   m_LocalScale: {x: 4.1501913, y: 4.1501913, z: 4.1501913}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -503,6 +503,7 @@ MonoBehaviour:
   Vamana: {fileID: 36432071}
   Target: {fileID: 1247515028}
   movementSpeed: 4
+  delayBeforeWalking: 1.5
 --- !u!4 &2030406802
 Transform:
   m_ObjectHideFlags: 0

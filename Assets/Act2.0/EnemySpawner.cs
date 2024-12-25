@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -13,6 +14,14 @@ public class EnemySpawner : MonoBehaviour
     {
         // Start the spawning process
         StartCoroutine(SpawnEnemies());
+    }
+
+    void Update()
+    {
+        if (enemyCount ==5)
+        {
+            SceneManager.LoadScene("PuzzleScene");
+        }
     }
 
     IEnumerator SpawnEnemies()

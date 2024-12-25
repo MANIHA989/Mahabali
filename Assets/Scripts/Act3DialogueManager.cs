@@ -274,6 +274,8 @@ public class Act3Manager : MonoBehaviour
             targetYPosition,
             Vamana.transform.position.z
         );
+
+        SceneManager.LoadScene("Act3Scene2");
     }
 
 }

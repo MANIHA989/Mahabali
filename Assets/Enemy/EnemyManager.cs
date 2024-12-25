@@ -1,12 +1,15 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class EnemyManager : MonoBehaviour
 {
     public GameObject enemyPrefab; // Enemy prefab to spawn
     public float respawnDelay = 2f; // Delay before spawning a new enemy
+    public float sceneLoadDelay = 2f; // Delay before loading the next scene
 
     private GameObject currentEnemy; // Reference to the current active enemy
+    private int enemiesKilled = 0; // Counter for the number of enemies killed
 
     private void Start()
     {
@@ -27,12 +30,28 @@ public class EnemyManager : MonoBehaviour
         {
             Destroy(currentEnemy);
         }
-        StartCoroutine(RespawnEnemyWithDelay());
+        enemiesKilled++;
+
+        if (enemiesKilled >= 3)
+        {
+            // Wait for a specified delay before loading the next scene
+            StartCoroutine(LoadNextSceneWithDelay());
+        }
+        else
+        {
+            StartCoroutine(RespawnEnemyWithDelay());
+        }
+    }
+
+    private IEnumerator LoadNextSceneWithDelay()
+    {
+        yield return new WaitForSeconds(sceneLoadDelay); // Wait for the specified scene load delay
+        SceneManager.LoadScene("Act2"); // Load the next scene
     }
 
     private IEnumerator RespawnEnemyWithDelay()
     {
-        yield return new WaitForSeconds(respawnDelay); // Wait for the specified delay
+        yield return new WaitForSeconds(respawnDelay); // Wait for the specified respawn delay
         SpawnEnemy(); // Spawn a new enemy
     }
 }

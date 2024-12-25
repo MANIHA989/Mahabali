@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement; // Add this to access scene management
 
 public class PlayerUnderWorld : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerUnderWorld : MonoBehaviour
     public Vector3 TargetScale = new Vector3(1f, 1f, 1f); // Target scale for the player
     public float scaleSpeed = 1f; // Speed for scaling the player
     public float fadeDuration = 1f; // Duration of the fade-out effect
+    public float sceneLoadDelay = 1f; // Delay before loading the next scene
 
     private SpriteRenderer playerSpriteRenderer; // SpriteRenderer of the player
 
@@ -39,10 +41,14 @@ public class PlayerUnderWorld : MonoBehaviour
 
         // Stop walking animation once the target is reached
         PlayerAnimator.SetBool("isWalking", false);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f); // Wait for a short time before starting the fade
 
         // Start fading effect
         yield return StartCoroutine(FadeOut());
+
+        // After fade-out is complete, load the next scene after a delay
+        yield return new WaitForSeconds(sceneLoadDelay);
+        SceneManager.LoadScene("Act2Scene3"); // Replace with your next scene name
     }
 
     IEnumerator FadeOut()

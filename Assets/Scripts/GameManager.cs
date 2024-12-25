@@ -1,10 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
-
 public class GameManager : MonoBehaviour
 {
     public AudioClip backgroundMusic; // Assign the music clip in the Inspector
     private AudioSource audioSource;
+
+    public FadeIn obj;  // Reference to the FadeIn script
 
     private void Start()
     {
@@ -28,9 +33,21 @@ public class GameManager : MonoBehaviour
         // Optional: Add game-wide input or behavior checks here
     }
 
-    // Method to load the next scene
+    // Method to load the next scene with a delay after the fade-in effect
     public void LoadNextScene()
     {
+        StartCoroutine(LoadSceneWithDelay());
+    }
+
+    private IEnumerator LoadSceneWithDelay()
+    {
+        // Start the fade-in effect
+        StartCoroutine(obj.FadeInEffect());
+
+        // Wait for the duration of the fade-in (adjust the time as needed)
+        yield return new WaitForSeconds(1f);  // Adjust delay time here if needed
+
+        // Load the next scene
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1); // Load the next scene by index
     }

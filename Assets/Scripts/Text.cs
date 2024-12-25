@@ -29,8 +29,11 @@ public class MoveToPositionWithDialog : MonoBehaviour
 
     public GameObject Training;
 
+    public FadeIn obj;
     private void Start()
     {
+
+        obj.FadeInEffect();
         playerAnimator = player.GetComponent<Animator>();
         oldManAnimator = oldMan.GetComponent<Animator>();
 
