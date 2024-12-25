@@ -135,7 +135,10 @@ public class MoveToPositionWithDialog : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         Training.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        obj.FadeInEffect();
         yield return new WaitForSeconds(1.5f);
+
         SceneManager.LoadScene(currentSceneIndex + 1);
 
     }

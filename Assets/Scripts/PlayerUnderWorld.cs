@@ -15,6 +15,7 @@ public class PlayerUnderWorld : MonoBehaviour
 
     private SpriteRenderer playerSpriteRenderer; // SpriteRenderer of the player
 
+    public GameObject obj;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +49,14 @@ public class PlayerUnderWorld : MonoBehaviour
 
         // After fade-out is complete, load the next scene after a delay
         yield return new WaitForSeconds(sceneLoadDelay);
-        SceneManager.LoadScene("Act2Scene3"); // Replace with your next scene name
+        if (SceneManager.GetActiveScene().name == "Act2Scene2")
+        {
+            SceneManager.LoadScene("Act2Scene3");
+        }
+        else
+        {
+            obj.SetActive(true);
+        }// Replace with your next scene name
     }
 
     IEnumerator FadeOut()

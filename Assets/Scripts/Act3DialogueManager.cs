@@ -49,13 +49,13 @@ public class Act3Manager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Act3")
         {
-           isMainCharacterAnimating = true;
-}
-        TypingSound.enabled=false;
+            isMainCharacterAnimating = true;
+        }
+        TypingSound.enabled = false;
         MainCharacterAnimator.enabled = false;
 
         Animator vamanaAnimator = Vamana.GetComponent<Animator>();
-        
+
     }
 
     void Update()
@@ -126,15 +126,12 @@ public class Act3Manager : MonoBehaviour
         }
     }
 
-
-
-
     public void StartConversation(Dialogue dialogue)
     {
         if (SupportingCharacterAnimator != null)
         {
-            SupportingCharacterAnimator.SetBool("isIdle",true); // Replace with your idle animation state name
-            SupportingCharacterAnimator.SetBool("isWalking",false); // Replace with your idle animation state name
+            SupportingCharacterAnimator.SetBool("isIdle", true); // Replace with your idle animation state name
+            SupportingCharacterAnimator.SetBool("isWalking", false); // Replace with your idle animation state name
         }
         isConversationActive = true;
 
@@ -178,7 +175,6 @@ public class Act3Manager : MonoBehaviour
 
     private IEnumerator ShowTextLine(string sentence)
     {
-      
         ConversationAnimator.SetTrigger("ShowTrigger");
         yield return new WaitForSeconds(1f);
 
@@ -213,8 +209,26 @@ public class Act3Manager : MonoBehaviour
     private IEnumerator WaitBeforeSceneChange()
     {
         yield return new WaitForSeconds(2f); // Adjust delay duration as needed
+        LoadNextSceneWithDelay();
+    }
 
-        // SceneManager.LoadScene("NextScene"); // Replace with your scene logic
+    private void LoadNextSceneWithDelay()
+    {
+        StartCoroutine(DelayedSceneChange());
+    }
+
+    private IEnumerator DelayedSceneChange()
+    {
+        yield return new WaitForSeconds(1f); // Delay before loading the scene
+        if (SceneManager.GetActiveScene().name == "Act3")
+        {
+            StartCoroutine(ScaleVamanaGradually());
+        }
+
+        if (SceneManager.GetActiveScene().name == "Act3Scene3")
+        {
+            SceneManager.LoadScene("LastScene");
+        }
     }
 
     public void ToggleCharacterAnimations()
@@ -243,6 +257,10 @@ public class Act3Manager : MonoBehaviour
             StartCoroutine(ScaleVamanaGradually());
         }
 
+        if (SceneManager.GetActiveScene().name == "Act3Scene3")
+        {
+            // Scene will now load with delay from the coroutine
+        }
     }
 
     private IEnumerator ScaleVamanaGradually()
@@ -277,5 +295,4 @@ public class Act3Manager : MonoBehaviour
 
         SceneManager.LoadScene("Act3Scene2");
     }
-
 }

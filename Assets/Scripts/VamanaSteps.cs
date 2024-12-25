@@ -41,7 +41,8 @@ public class VamanaSteps : MonoBehaviour
             VamanaAnimator.Play("VamanaIdle");
         }
 
-        //SceneManager.LoadScene("Act3Scene3");
+        SceneManager.LoadScene("Act3Scene3");
+        yield return new WaitForSeconds(1.5f);
     }
 
     // Move Vamana towards the target

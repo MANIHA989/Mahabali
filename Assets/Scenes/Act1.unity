@@ -412,7 +412,7 @@ MonoBehaviour:
   dialogBox1TextRect: {fileID: 582874379}
   dialogBox2TextRect: {fileID: 1077721627}
   typewriterSpeed: 0.05
-  scrollSpeed: 70
+  scrollSpeed: 25
   moveSpeed: 2
   scaleSpeed: 1
   playerTargetScale: {x: 0.15, y: 0.15, z: 0.15}
@@ -2677,7 +2677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870f379a48763bd42b93cda3729acb62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blackScreen: {fileID: 472482860}
+  blackScreen: {fileID: 1202612155}
   fadeDuration: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
