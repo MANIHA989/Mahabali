@@ -46,14 +46,16 @@ public class Act3Manager : MonoBehaviour
 
     void Start()
     {
-        TypingSound.Pause();
+
+        if (SceneManager.GetActiveScene().name == "Act3")
+        {
+           isMainCharacterAnimating = true;
+}
+        TypingSound.enabled=false;
         MainCharacterAnimator.enabled = false;
 
         Animator vamanaAnimator = Vamana.GetComponent<Animator>();
-        if (vamanaAnimator != null)
-        {
-            vamanaAnimator.Play("vamana walk"); // Replace with your animation name
-        }
+        
     }
 
     void Update()
@@ -64,41 +66,79 @@ public class Act3Manager : MonoBehaviour
         }
     }
 
+    private bool isWalkAnimationPaused = false; // New variable to track walk animation state
+
     private void MoveVamanaToTarget()
     {
         if (Vamana != null && TargetPosition != null)
         {
-            Vamana.transform.position = Vector3.MoveTowards(
-                Vamana.transform.position,
-                TargetPosition.position,
-                movementSpeed * Time.deltaTime
-            );
+            // Check if Vamana is already at the target
+            float distanceToTarget = Vector3.Distance(Vamana.transform.position, TargetPosition.position);
 
-            if (Vector3.Distance(Vamana.transform.position, TargetPosition.position) < 0.1f)
+            if (distanceToTarget > 0.1f)
             {
+                // Vamana is moving towards the target
+                Vamana.transform.position = Vector3.MoveTowards(
+                    Vamana.transform.position,
+                    TargetPosition.position,
+                    movementSpeed * Time.deltaTime
+                );
+
+                // Play walk animation if not already playing
+                Animator vamanaAnimator = Vamana.GetComponent<Animator>();
+                if (vamanaAnimator != null && !vamanaAnimator.GetCurrentAnimatorStateInfo(0).IsName("vamana walk"))
+                {
+                    vamanaAnimator.Play("vamana walk");
+                }
+            }
+            else
+            {
+                // Vamana has reached the target
                 isMoving = false;
 
                 Animator vamanaAnimator = Vamana.GetComponent<Animator>();
                 if (vamanaAnimator != null)
                 {
-                    vamanaAnimator.enabled = false;
+                    vamanaAnimator.Play("VamanaIdle"); // Replace with your idle animation state name
                 }
-                ReachedTarget = true;
-                vamanaAnimator.enabled = false;
-                SupportingCharacterAnimator.enabled = false;
-                trigger.TriggerDialogue();
 
+                // Stop supporting character's animation
+                if (SupportingCharacterAnimator != null)
+                {
+                    SupportingCharacterAnimator.SetBool("isIdle", true); // Ensure idle animation
+                    SupportingCharacterAnimator.SetBool("isWalking", false); // Stop walking animation
+                }
+
+                ReachedTarget = true;
+                SupportingCharacterAnimator.enabled = false;
+                // Add a delay before starting the dialogue
+                StartCoroutine(DelayBeforeDialogue());
             }
         }
     }
 
+    private IEnumerator DelayBeforeDialogue()
+    {
+        yield return new WaitForSeconds(2f); // Adjust delay duration as needed
+        if (trigger != null)
+        {
+            trigger.TriggerDialogue(); // Start the dialogue
+        }
+    }
+
+
+
+
     public void StartConversation(Dialogue dialogue)
     {
+        if (SupportingCharacterAnimator != null)
+        {
+            SupportingCharacterAnimator.SetBool("isIdle",true); // Replace with your idle animation state name
+            SupportingCharacterAnimator.SetBool("isWalking",false); // Replace with your idle animation state name
+        }
         isConversationActive = true;
 
         dialogueQueue.Clear();
-
-        SupportingCharacterAnimator.SetBool("isIdle", true);
 
         foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
         {
@@ -138,12 +178,13 @@ public class Act3Manager : MonoBehaviour
 
     private IEnumerator ShowTextLine(string sentence)
     {
-        yield return new WaitForSeconds(1.5f);
+      
         ConversationAnimator.SetTrigger("ShowTrigger");
         yield return new WaitForSeconds(1f);
 
         if (TypingSound != null)
         {
+            TypingSound.enabled = true;
             TypingSound.UnPause();
             TypingSound.Play();
         }
@@ -165,6 +206,8 @@ public class Act3Manager : MonoBehaviour
 
         ShowNextDialogueLine();
         ConversationAnimator.SetTrigger("HideTrigger");
+
+        yield return new WaitForSeconds(1.5f);
     }
 
     private IEnumerator WaitBeforeSceneChange()

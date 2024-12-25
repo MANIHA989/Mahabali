@@ -47,7 +47,16 @@ public class DialogueTrigger : MonoBehaviour
               Act3Manager.Instance.StartConversation(dialogue);
           }
          }
-        
+
+        if (SceneManager.GetActiveScene().name == "Act3Scene3")
+        {
+            // Ensure Act3Manager instance is initialized and target is reached
+            if (Act3Manager.Instance != null && Act3Manager.Instance.ReachedTarget)
+            {
+                Act3Manager.Instance.StartConversation(dialogue);
+            }
+        }
+
     }
 
     
