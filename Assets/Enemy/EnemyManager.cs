@@ -11,6 +11,8 @@ public class EnemyManager : MonoBehaviour
     private GameObject currentEnemy; // Reference to the current active enemy
     private int enemiesKilled = 0; // Counter for the number of enemies killed
 
+    public GameObject Act2Screen;
+
     private void Start()
     {
         SpawnEnemy(); // Spawn the first enemy
@@ -45,7 +47,10 @@ public class EnemyManager : MonoBehaviour
 
     private IEnumerator LoadNextSceneWithDelay()
     {
-        yield return new WaitForSeconds(sceneLoadDelay); // Wait for the specified scene load delay
+        yield return new WaitForSeconds(2f);
+        Act2Screen.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        // Wait for the specified scene load delay
         SceneManager.LoadScene("Act2"); // Load the next scene
     }
 

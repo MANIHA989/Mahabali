@@ -23,6 +23,8 @@ public class FindAmritam : MonoBehaviour
     private bool isDelayActive = false; // To track if the delay is active
     private float delayTimer = 0f; // Timer to track the delay
 
+    public GameObject Act3Screen;
+
     void Start()
     {
     }
@@ -123,7 +125,11 @@ public class FindAmritam : MonoBehaviour
 
             yield return new WaitForSeconds(TypewriterSpeed);
         }
+
+        TypingAudioSource.Pause();
         yield return new WaitForSeconds(2);
+        Act3Screen.SetActive(true);
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene("Act3");
     }
 }
